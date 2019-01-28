@@ -1,17 +1,13 @@
 <template>
-  <el-row :gutter="20" class="m-header">
-    <el-col :span="6">
-      <div class="grid-content bg-purple">
-        <Geo/>
-      </div>
+  <el-row :gutter="0" class="m-header">
+    <el-col :span="4">
+      <Geo/>
     </el-col>
     <el-col :span="6">
-      <div class="grid-content bg-purple">
-        <User/>
-      </div>
+      <User/>
     </el-col>
-    <el-col :span="6">
-      <div class="grid-content bg-purple"></div>
+    <el-col :span="14">
+      <Nav/>
     </el-col>
   </el-row>
 </template>
@@ -19,17 +15,19 @@
 <script>
 import Geo from "./geo";
 import User from "./user";
+import Nav from "./nav";
 
 export default {
   components: {
     Geo,
-    User
+    User,
+    Nav
   }
 };
 </script>
 
 <style lang="scss">
-@import "@/assets/css/public/layout.scss";
+@import "@/assets/css/public/header.scss";
 </style>
 
 
