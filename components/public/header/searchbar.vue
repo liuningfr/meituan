@@ -49,7 +49,7 @@
           </li>
         </ul>
       </el-col>
-      <el-col :span="6" class="right">
+      <!-- <el-col :span="6" class="right">
         <ul class="security">
           <li>
             <i class="refund"/>
@@ -64,7 +64,7 @@
             <p class="txt">过期退</p>
           </li>
         </ul>
-      </el-col>
+      </el-col>-->
     </el-row>
   </div>
 </template>
@@ -102,7 +102,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 </style>
 
 
