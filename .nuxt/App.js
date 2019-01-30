@@ -5,9 +5,10 @@ import '../node_modules/element-ui/lib/theme-chalk/index.css'
 
 import '../node_modules/element-ui/lib/theme-chalk/reset.css'
 
+import _77180f1e from '../layouts/blank.vue'
 import _6f6c098b from '../layouts/default.vue'
 
-const layouts = { "_default": _6f6c098b }
+const layouts = { "_blank": _77180f1e,"_default": _6f6c098b }
 
 export default {
   head: {"title":"meituan","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"My striking Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
