@@ -131,7 +131,7 @@ export default {
       });
       if (!namePass && !emailPass) {
         self.$axios
-          .post("/users/verify", {
+          .post("http://127.0.0.1:3000/users/verify", {
             username: encodeURIComponent(self.ruleForm.name),
             email: self.ruleForm.email
           })
