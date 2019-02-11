@@ -111,7 +111,45 @@ export default {
     };
   },
   methods: {
-    sendMsg() {},
+    sendMsg() {
+      const self = this;
+      if (self.timeid) {
+        return false;
+      }
+      let namePass;
+      let emailPass;
+      this.$refs["ruleForm"].validateField("name", valid => {
+        namePass = valid;
+      });
+      self.statusMsg = "";
+      if (namePass) {
+        return false;
+      }
+      this.$refs["ruleForm"].validateField("email", valid => {
+        emailPass = valid;
+      });
+      if (!namePass && !emailPass) {
+        self.$axios
+          .post("/users/verify", {
+            username: encodeURIComponent(self.ruleForm.name),
+            email: self.ruleForm.email
+          })
+          .then(({ status, data }) => {
+            if (status === 200 && data && data.code === 0) {
+              let count = 60;
+              self.statusMsg = `验证码已发送, 剩余${count--}秒`;
+              self.timeid = setInterval(() => {
+                if (count === 0) {
+                  clearInterval(self.timeid);
+                }
+                self.statusMsg = `验证码已发送, 剩余${count--}秒`;
+              }, 1000);
+            } else {
+              self.statusMsg = data.msg;
+            }
+          });
+      }
+    },
     register() {}
   }
 };
