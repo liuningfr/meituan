@@ -38,7 +38,7 @@
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="register">同意以下协议并注册</el-button>
-          <div class="error"></div>
+          <div class="error">{{error}}</div>
         </el-form-item>
         <el-form-item>
           <a class="f1" href="http://www.meituan.com/about/terms" target="_blank">《美团网用户协议》</a>
@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import CryptoJS from "crypto-js";
 export default {
   layout: "blank",
   data() {
@@ -150,7 +151,34 @@ export default {
           });
       }
     },
-    register() {}
+    register() {
+      const self = this;
+      this.$refs["ruleForm"].validate(valid => {
+        if (valid) {
+          self.$axios
+            .post("/users/signup", {
+              username: encodeURIComponent(self.ruleForm.name),
+              password: CryptoJS.MD5(self.ruleForm.pwd),
+              email: self.ruleForm.email,
+              code: self.ruleForm.code
+            })
+            .then(({ status, data }) => {
+              if (status === 200) {
+                if (data && data.code === 0) {
+                  location.href = "/login";
+                } else {
+                  self.error = data.msg;
+                }
+              } else {
+                self.error = `服务器出错，错误码${status}`;
+              }
+              setTimeout(() => {
+                self.error = "";
+              }, 1500);
+            });
+        }
+      });
+    }
   }
 };
 </script>
