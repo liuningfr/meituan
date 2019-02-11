@@ -5,6 +5,8 @@ import '../node_modules/element-ui/lib/theme-chalk/index.css'
 
 import '../node_modules/element-ui/lib/theme-chalk/reset.css'
 
+import '../assets/css/main.css'
+
 import _77180f1e from '../layouts/blank.vue'
 import _6f6c098b from '../layouts/default.vue'
 

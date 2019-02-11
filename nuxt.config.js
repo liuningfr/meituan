@@ -1,12 +1,11 @@
-const pkg = require('./package')
-
+const pkg = require('./package');
 
 module.exports = {
   mode: 'universal',
 
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: pkg.name,
     meta: [
@@ -14,52 +13,42 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   /*
-  ** Customize the progress-bar color
-  */
+   ** Customize the progress-bar color
+   */
   loading: { color: '#fff' },
 
   /*
-  ** Global CSS
-  */
+   ** Global CSS
+   */
   css: [
     'element-ui/lib/theme-chalk/index.css',
     'element-ui/lib/theme-chalk/reset.css',
-    // '@/assets/css/main.css',
+    '@/assets/css/main.css'
   ],
 
   /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-    '@/plugins/element-ui'
-  ],
+   ** Plugins to load before mounting the App
+   */
+  plugins: ['@/plugins/element-ui'],
 
   /*
-  ** Nuxt.js modules
-  */
-  modules: [
-    '@nuxtjs/axios'
-  ],
+   ** Nuxt.js modules
+   */
+  modules: ['@nuxtjs/axios'],
 
-  axios: {
-
-  },
+  axios: {},
 
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     /*
-    ** You can extend webpack config here
-    */
-    extend(config, ctx) {
-      
-    }
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {}
   }
-}
+};
