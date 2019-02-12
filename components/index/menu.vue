@@ -60,21 +60,17 @@ export default {
   },
   methods: {
     mouseleave() {
-      console.log("mouseleave");
       this.timer = setTimeout(() => {
         this.kind = "";
       }, 150);
     },
     mouseenter(e) {
-      console.log("mouseenter");
       this.kind = e.target.querySelector("i").className;
     },
     sover() {
-      console.log("sover");
       clearTimeout(this.timer);
     },
     sout() {
-      console.log("sout");
       this.kind = "";
     }
   }
