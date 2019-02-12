@@ -7,7 +7,7 @@ import Axios from './utils/axios';
 import Email from '../dbs/config';
 
 const router = new Router({
-  prefix: '/users '
+  prefix: '/users'
 });
 
 const Store = new Redis().client;
@@ -15,8 +15,8 @@ const Store = new Redis().client;
 router.post('/signup', async ctx => {
   const { username, password, email, code } = ctx.request.body;
   if (code) {
-    const saveCode = await Store.hget(`nodemail:${username}`, code);
-    const saveExpire = await Store.hget(`nodemail:${username}`, expire);
+    const saveCode = await Store.hget(`nodemail:${username}`, 'code');
+    const saveExpire = await Store.hget(`nodemail:${username}`, 'expire');
     if (code === saveCode) {
       if (new Date().getTime() - saveExpire > 0) {
         ctx.body = {
@@ -103,7 +103,7 @@ router.post('/signin', async ctx => {
 
 router.post('/verify', async ctx => {
   const { username, email } = ctx.request.body;
-  const saveExpire = await Store.hget(`nodemail:${username}`, expire);
+  const saveExpire = await Store.hget(`nodemail:${username}`, 'expire');
   if (saveExpire && new Date().getTime() - saveExpire < 0) {
     ctx.body = {
       code: -1,
