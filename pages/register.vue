@@ -131,7 +131,7 @@ export default {
       });
       if (!namePass && !emailPass) {
         self.$axios
-          .post("http://127.0.0.1:3000/users/verify", {
+          .post("/users/verify", {
             username: encodeURIComponent(self.ruleForm.name),
             email: self.ruleForm.email
           })
@@ -158,7 +158,7 @@ export default {
           self.$axios
             .post("/users/signup", {
               username: encodeURIComponent(self.ruleForm.name),
-              password: CryptoJS.MD5(self.ruleForm.pwd),
+              password: CryptoJS.MD5(self.ruleForm.pwd).toString(),
               email: self.ruleForm.email,
               code: self.ruleForm.code
             })
