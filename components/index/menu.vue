@@ -4,7 +4,7 @@
       <dt>全部分类</dt>
       <dd v-for="(item,idx) in $store.state.home.menu" :key="idx" @mouseenter="mouseenter ">
         <i :class="item.type"/>
-        {{item.title}}
+        {{item.name}}
         <span class="arrow"></span>
       </dd>
     </dl>
