@@ -2,8 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
+const _3f38c7af = () => interopDefault(import('../pages/cart.vue' /* webpackChunkName: "pages/cart" */))
+const _7e35fb0a = () => interopDefault(import('../pages/changeCity.vue' /* webpackChunkName: "pages/changeCity" */))
+const _3fa47ac0 = () => interopDefault(import('../pages/detail.vue' /* webpackChunkName: "pages/detail" */))
 const _7f6252a6 = () => interopDefault(import('../pages/exit.vue' /* webpackChunkName: "pages/exit" */))
 const _3753da6a = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
+const _f3121062 = () => interopDefault(import('../pages/order.vue' /* webpackChunkName: "pages/order" */))
+const _2e94ef1a = () => interopDefault(import('../pages/products.vue' /* webpackChunkName: "pages/products" */))
 const _45672e32 = () => interopDefault(import('../pages/register.vue' /* webpackChunkName: "pages/register" */))
 const _6dac3753 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -65,6 +70,18 @@ export function createRouter() {
     scrollBehavior,
 
     routes: [{
+      path: "/cart",
+      component: _3f38c7af,
+      name: "cart"
+    }, {
+      path: "/changeCity",
+      component: _7e35fb0a,
+      name: "changeCity"
+    }, {
+      path: "/detail",
+      component: _3fa47ac0,
+      name: "detail"
+    }, {
       path: "/exit",
       component: _7f6252a6,
       name: "exit"
@@ -72,6 +89,14 @@ export function createRouter() {
       path: "/login",
       component: _3753da6a,
       name: "login"
+    }, {
+      path: "/order",
+      component: _f3121062,
+      name: "order"
+    }, {
+      path: "/products",
+      component: _2e94ef1a,
+      name: "products"
     }, {
       path: "/register",
       component: _45672e32,
