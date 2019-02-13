@@ -2,7 +2,9 @@
   <div class="search-panel">
     <el-row class="m-header-searchbar">
       <el-col :span="3" class="left">
-        <img src="//s0.meituan.net/bs/fe-web-meituan/e5eeaef/img/logo.png" alt="美团">
+        <a href="/">
+          <img src="//s0.meituan.net/bs/fe-web-meituan/e5eeaef/img/logo.png" alt="美团">
+        </a>
       </el-col>
       <el-col :span="15" class="center">
         <div class="wrapper">
@@ -17,10 +19,9 @@
             <i class="el-icon-search"/>
             <dl class="hotPlace" v-if="isHotPlace">
               <dt>热门搜索</dt>
-              <dd
-                v-for="(item,idx) in $store.state.home.hotPlace.slice(0,5)"
-                :key="idx"
-              >{{item.name}}</dd>
+              <dd v-for="(item,idx) in $store.state.home.hotPlace.slice(0,5)" :key="idx">
+                <a :href="'/products?keyword='+encodeURIComponent(item.name)">{{ item.name }}</a>
+              </dd>
             </dl>
             <dl class="searchList" v-if="isSearchList">
               <dd v-for="(item,idx) in searchList" :key="idx">{{item.name}}</dd>
@@ -29,7 +30,7 @@
         </div>
         <p class="suggest">
           <a
-            fref="#"
+            :href="'/products?keyword='+encodeURIComponent(item.name)"
             v-for="(item,idx) in $store.state.home.hotPlace.slice(0,5)"
             :key="idx"
           >{{item.name}}</a>
